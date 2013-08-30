@@ -1,0 +1,4 @@
+david_game_homepage:
+    pattern:  /
+    defaults: { _controller: DavidGameBundle:Game:index }
+

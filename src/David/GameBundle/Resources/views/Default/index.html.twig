@@ -1,0 +1,9 @@
+{% extends "DavidGameBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Index{% endblock title %}
+
+{% block body %}
+    {% for  game in gameList%}
+        <li>{{ game.title }}</li>
+    {% endfor %}
+{% endblock body %}

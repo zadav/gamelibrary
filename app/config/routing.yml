@@ -1,0 +1,4 @@
+david_game:
+    resource: "@DavidGameBundle/Resources/config/routing.yml"
+    prefix:   /
+

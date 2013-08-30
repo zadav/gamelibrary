@@ -1,0 +1,7 @@
+parameters:
+#    david_game.example.class: David\Bundle\GameBundle\Example
+
+services:
+#    david_game.example:
+#        class: %david_game.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
