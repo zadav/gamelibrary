@@ -3,29 +3,38 @@
 namespace David\GameBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use David\GameBundle\Entity\Game;
 
 class GameController extends Controller
 {
     public function indexAction()
     {
-        $gameList = array(
-            array(
-                'id' => 1,
-                'title' => 'Street Fighter 2',
-                'year' => 1992
-            ),
-            array(
-                'id' => 2,
-                'title' => 'Rayman',
-                'year' => 1996
-            ),
-            array(
-                'id' => 3,
-                'title' => 'Metal Gear Solid',
-                'year' => 1992
-            )
-        );
+        $gameList = $this->getDoctrine()
+                           ->getRepository('DavidGameBundle:Game')
+                           ->findAll();
+
         return $this->render('DavidGameBundle:Default:index.html.twig',
                 array('gameList' => $gameList));
     }
+    
+    public function addGameAction(Request $request)
+    {
+        $game = new Game();
+        
+        $form = $this->createFormBuilder($game)
+                ->add('title', 'text')
+                ->add('description', 'text')
+                ->add('year', 'date')
+                ->getForm();
+        
+        return $this->render('DavidGameBundle:Default:new.html.twig', array(
+            'form' =>$form->createView(),
+        ));
+                
+        
+        
+        
+    }
+    
 }

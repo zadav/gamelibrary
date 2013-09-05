@@ -2,22 +2,68 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
         <title>{% block title %}My Game Library{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
+            <link href="{{ asset('css/game.css') }}" rel="stylesheet" />
+            <link href="{{ asset('css/bootstrap-responsive.css') }}" rel="stylesheet" />
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         <header>
             <h1>My game Library</h1>
         </header>
-         <nav>
-             <ul>
-                 <li>Consoles</li>
-                 <li>A propos</li>
-             </ul>
-         </nav>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" date-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            </div>
+            <a class="brand" href="#">Game Library</a>
+            <div class="nav-collapse collapse">
+              <p class="navbar-text pull-right">
+                 <a href="#" class="navbar-link">Sign in</a>
+              </p>
+              <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3">
+                    <div class="well sidebar-nav">
+                        <ul class="nav nav-list">
+                            <li class ="nav-header">Jeux</li>
+                            <li><a href="#">Ajouter un jeu</a></li>
+                            <li><a href="#">Ajouter une console</a></li>
+                            <li><a href="#">Liste des jeux</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="span9">
+                   {% block body %}
+                   {% endblock %}
+                </div>
+             </div>
+        </div>
+
+        {% block javascripts %}
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <script src="{{ asset('js/jquery-1.10.2.js') }}"></script>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+            <script src="{{ asset('js/bootstrap.js') }}"></script>
+        {% endblock %}
         <footer>
             Copyright David ZAOUI
         </footer>

@@ -1,4 +1,11 @@
-david_game_homepage:
+david_homepage:
     pattern:  /
     defaults: { _controller: DavidGameBundle:Game:index }
 
+david_game_add:
+    pattern:  /game/add
+    defaults: { _controller: DavidGameBundle:Game:addGame }
+
+david_game_edit:
+    pattern:  /game/edit/{id}
+    defaults: { _controller: DavidGameBundle:Game:editGame }
