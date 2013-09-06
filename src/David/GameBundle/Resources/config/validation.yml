@@ -1,0 +1,7 @@
+David\GameBundle\Entity\Game:
+    properties:
+        title:
+            - NotBlank: ~
+        year:
+           - NotBlank: ~
+           - Type: \DateTime

@@ -26,14 +26,25 @@ class GameController extends Controller
                 ->add('title', 'text')
                 ->add('description', 'text')
                 ->add('year', 'date')
+                ->add('save', 'submit')
+                ->add('saveAndAdd', 'submit')
                 ->getForm();
+        
+        $form->handleRequest($request);
+        
+        if ($form->isValid()) {
+                
+                $nextAction = $form->get('saveAndAdd')->isClicked()
+                        ? 'david_game_add'
+                        : 'david_success';
+                        
+                return $this->redirect($this->generateUrl($nextAction));     
+        }
         
         return $this->render('DavidGameBundle:Default:new.html.twig', array(
             'form' =>$form->createView(),
         ));
                 
-        
-        
         
     }
     
