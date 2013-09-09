@@ -14,11 +14,11 @@ class GameController extends Controller
                            ->getRepository('DavidGameBundle:Game')
                            ->findAll();
 
-        return $this->render('DavidGameBundle:Default:index.html.twig',
+        return $this->render('DavidGameBundle:Game:index.html.twig',
                 array('gameList' => $gameList));
     }
     
-    public function addGameAction(Request $request)
+    public function addAction(Request $request)
     {
         $game = new Game();
         
@@ -36,12 +36,12 @@ class GameController extends Controller
                 
                 $nextAction = $form->get('saveAndAdd')->isClicked()
                         ? 'david_game_add'
-                        : 'david_success';
+                        : 'david_homepage';
                         
                 return $this->redirect($this->generateUrl($nextAction));     
         }
         
-        return $this->render('DavidGameBundle:Default:new.html.twig', array(
+        return $this->render('DavidGameBundle:Game:new.html.twig', array(
             'form' =>$form->createView(),
         ));
                 

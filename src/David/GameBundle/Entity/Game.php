@@ -44,6 +44,11 @@ class Game
 
 
     /**
+     * @ORM\ManyToMany(targetEntity="David\GameBundle\Entity\Console")
+     */
+    private $consoles;
+            
+    /**
      * Get id
      *
      * @return integer 
@@ -120,5 +125,45 @@ class Game
     public function getYear()
     {
         return $this->year;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->consoles = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add consoles
+     *
+     * @param \David\GameBundle\Entity\Console $consoles
+     * @return Game
+     */
+    public function addConsole(\David\GameBundle\Entity\Console $consoles)
+    {
+        $this->consoles[] = $consoles;
+    
+        return $this;
+    }
+
+    /**
+     * Remove consoles
+     *
+     * @param \David\GameBundle\Entity\Console $consoles
+     */
+    public function removeConsole(\David\GameBundle\Entity\Console $consoles)
+    {
+        $this->consoles->removeElement($consoles);
+    }
+
+    /**
+     * Get consoles
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getConsoles()
+    {
+        return $this->consoles;
     }
 }

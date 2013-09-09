@@ -1,0 +1,20 @@
+{% extends "DavidGameBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Index{% endblock title %}
+
+{% block body %}
+ <div class="row-fluid">
+    <div class="span9">
+        <h1>Liste des consoles</h1>
+        <ul>
+        {% for console in consoleList %}
+            <li><a href = "{{ path('david_console_detail', {'id': console.id} ) }}">{{ console.title }}</a>
+                <span><a href ="{{ path('david_console_delete', {'id': console.id}) }}">Supprimer</a></span>
+                <span><a href ="{{ path('david_console_edit', {'id': console.id}) }}">Editer</a></span>
+            </li>
+        {% endfor%}
+        </ul>
+    </div><!--/span-->
+ </div>
+
+{% endblock body %}

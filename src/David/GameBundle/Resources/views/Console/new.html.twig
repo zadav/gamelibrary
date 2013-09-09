@@ -1,0 +1,13 @@
+{% extends "DavidGameBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} | New{% endblock title %}
+
+{% block body %}
+ <div class="row-fluid">
+    <div class="span9">
+        <h1>Ajouter une console</h1>
+        {{ form(form) }}
+    </div><!--/span-->
+ </div>
+
+{% endblock body %}

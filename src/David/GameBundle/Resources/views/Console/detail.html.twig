@@ -1,0 +1,16 @@
+{% extends "DavidGameBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Index{% endblock title %}
+
+{% block body %}
+ <div class="row-fluid">
+    <div class="span9">
+        <h1>Console : {{ console.title }}</h1>
+        <p>
+            {{ console.description }}
+        </p>
+        <a href="{{ path('david_console_index') }}">Retour à la liste</a>
+    </div><!--/span-->
+ </div>
+
+{% endblock body %}

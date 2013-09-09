@@ -2,10 +2,34 @@ david_homepage:
     pattern:  /
     defaults: { _controller: DavidGameBundle:Game:index }
 
+david_game_index:
+    pattern:  /games
+    defaults: { _controller: DavidGameBundle:Game:index }
+
 david_game_add:
     pattern:  /game/add
-    defaults: { _controller: DavidGameBundle:Game:addGame }
+    defaults: { _controller: DavidGameBundle:Game:add }
 
 david_game_edit:
     pattern:  /game/edit/{id}
-    defaults: { _controller: DavidGameBundle:Game:editGame }
+    defaults: { _controller: DavidGameBundle:Game:edit }
+
+david_console_index:
+    pattern:  /consoles
+    defaults: { _controller: DavidGameBundle:Console:index }
+
+david_console_add:
+    pattern:  /console/add
+    defaults: { _controller: DavidGameBundle:Console:add }
+
+david_console_edit:
+    pattern:  /console/edit/{id}
+    defaults: { _controller: DavidGameBundle:Console:edit }
+    
+david_console_delete:
+    pattern:  /console/delete/{id}
+    defaults: { _controller: DavidGameBundle:Console:delete }
+
+david_console_detail:
+    pattern:  /console/detail/{id}
+    defaults: { _controller: DavidGameBundle:Console:detail }
