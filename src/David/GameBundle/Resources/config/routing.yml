@@ -14,6 +14,14 @@ david_game_edit:
     pattern:  /game/edit/{id}
     defaults: { _controller: DavidGameBundle:Game:edit }
 
+david_game_detail:
+    pattern:  /game/detail/{id}
+    defaults: { _controller: DavidGameBundle:Game:detail }
+
+david_game_delete:
+    pattern:  /game/delete/{id}
+    defaults: { _controller: DavidGameBundle:Game:delete }
+
 david_console_index:
     pattern:  /consoles
     defaults: { _controller: DavidGameBundle:Console:index }

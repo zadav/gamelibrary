@@ -1,0 +1,21 @@
+{% extends "DavidGameBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Index{% endblock title %}
+
+{% block body %}
+ <div class="row-fluid">
+    <div class="span9">
+        <h1>Game : {{ game.title }}</h1>
+        <p>
+            {{ game.description }}
+        </p>
+        <a href="{{ path('david_game_index') }}">Retour à la liste</a>
+        <a href="#myModal" role="button" class="img-modal" data-toggle="modal"><img src="{{ asset('upload/' ~ game.id ~'/' ~ game.image)}}" /></a> 
+        
+        
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <img src="{{ asset('upload/' ~ game.id ~'/' ~ game.image)}}" />
+    </div>
+ </div>
+
+{% endblock body %}

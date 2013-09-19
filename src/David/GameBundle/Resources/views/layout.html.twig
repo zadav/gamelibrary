@@ -26,7 +26,6 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-            </div>
             <a class="brand" href="#">Game Library</a>
             <div class="nav-collapse collapse">
               <p class="navbar-text pull-right">
@@ -38,6 +37,8 @@
                 <li><a href="#contact">Contact</a></li>
               </ul>
             </div><!--/.nav-collapse -->
+            </div>
+
         </div>
         <div class="container-fluid">
             <div class="row-fluid">
@@ -53,8 +54,16 @@
                     </div>
                 </div>
                 <div class="span9">
-                   {% block body %}
-                   {% endblock %}
+
+                        {% for type, flashMessages in app.session.flashbag.all() %}
+                            {% for message in flashMessages %}
+                            <div class="flash-message">
+                                 {{ message }}
+                            </div>
+                            {% endfor %}
+                        {% endfor %}
+                        {% block body %}
+                        {% endblock %}
                 </div>
              </div>
         </div>
